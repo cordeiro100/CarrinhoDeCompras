@@ -1,0 +1,39 @@
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #000C37;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="assets/fashion.png"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+      <li class="nav-item">
+      <a href=""><i class="bi bi-cart4"></i></a>
+      </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container">
+<div class="row">
+  <div class="d-flex justify-content-center" >
+    
+
+    <div class="card card1" style="width: 20rem" *ngFor="let ofertas of oferta">
+      <h5>{{ofertas.titulo}}</h5>
+      <img [src]="ofertas.imagens" />
+      <p>{{ofertas.descricao}}</p>
+      <p>{{ofertas.valor | currency: 'BRL': true}}</p>
+      <a [routerLink]="['/ofertas', ofertas.id]"><button  type="button">Ver oferta</button></a>
+    </div>
+
+  
+  
+  
+  
+  
+  </div>
+</div>
+</div>

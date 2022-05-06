@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "carrinho-cfe9c": {
+      "hosting": {
+        "carrinho": [
+          "carrinho-cfe9c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "carrinho-cfe9c"
+  }
+}
