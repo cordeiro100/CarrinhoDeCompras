@@ -18,13 +18,15 @@ import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OfertasComponent } from './views/ofertas/ofertas.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     OrdemCompraComponent,
-    OfertasComponent
+    OfertasComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { OfertasComponent } from './views/ofertas/ofertas.component';
     provideMessaging(() => getMessaging()),
     providePerformance(() => getPerformance()),
     provideRemoteConfig(() => getRemoteConfig()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    NgbModule
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
