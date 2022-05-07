@@ -41,7 +41,7 @@ bi-cart4{
     background-color: white;
 }
 
-.container{
+.background{
     background-image: url("src/assets/background.png");
     height: 100vh;
     background-repeat: no-repeat;
@@ -80,3 +80,4 @@ bi-cart4{
 .card3:hover{
     transform: scale(1.1);
 }
+

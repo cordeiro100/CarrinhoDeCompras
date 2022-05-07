@@ -7,27 +7,33 @@ import { OfertaService } from 'src/app/services/oferta.service';
 @Component({
   selector: 'app-ofertas',
   templateUrl: './ofertas.component.html',
-  styleUrls: ['./ofertas.component.css']
+  styleUrls: ['./ofertas.component.css'],
 })
-
-
 export class OfertasComponent implements OnInit {
+  @Input() id: string;
 
-@Input() id: string
+  public oferta: Ofertas;
 
-public oferta: Ofertas
+  constructor(
+    private route: ActivatedRoute,
+    private ofertaService: OfertaService
+  ) {}
 
 
-
-  constructor(private route: ActivatedRoute, private ofertaService: OfertaService ) { }
-
-  ngOnInit(): void {
-    if(this.id)
-    this.ofertaService.getOfertasById(this.id).subscribe(res =>{
-      this.oferta = res
-    })
+  ngOnInit() {
+    console.log(this.route.snapshot.params)
+  this.id =  this.route.snapshot.params['id']; 
      
-    
-  
+      this.getOferta()
   }
-}
+  
+
+
+  getOferta(): void {
+
+      this.ofertaService.getOfertasById(this.id).subscribe((res) => {
+        this.oferta = res;
+      });
+    }
+  }
+

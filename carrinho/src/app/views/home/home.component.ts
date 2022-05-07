@@ -10,28 +10,21 @@ import { OfertaService } from 'src/app/services/oferta.service';
   styleUrls: ['./home.component.css'],
   providers: [OfertaService]
 
-  
+
  
 })
 export class HomeComponent implements OnInit {
  public oferta:  Ofertas[]
 
+ ofertas: any[]
+
   constructor(private ofertaService: OfertaService, private carrinhoService: CarrinhoService) { }
 
   ngOnInit(): void {
- //this.oferta = this.ofertaService.getOfertas()
-
- console.log("oferta", this.carrinhoService.exibirItens())
-
-    this.ofertaService.getOfertas2().then((oferta: Ofertas[]) =>{
-      this.oferta = oferta
+    this.ofertaService.getOfertas().subscribe((oferta: Ofertas[]) =>{
+      this.oferta = oferta 
     })
-
   }
 
-  public adicionarItemCarrinho(): void{
-    this.oferta
-   
- 
-  }
+
 }
