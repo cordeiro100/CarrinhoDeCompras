@@ -24,7 +24,7 @@
     <div class="card card1" style="width: 20rem" *ngFor="let ofertas of oferta">
       <h5>{{ofertas.titulo}}</h5>
       <img [src]="ofertas.imagens" />
-      <p>{{ofertas.descricao}}</p>
+ 
       <p>{{ofertas.valor | currency: 'BRL': true}}</p>
       <a [routerLink]="['/ofertas', ofertas.id]"><button class="btn btn-primary btn--lg" type="button">Ver oferta</button></a>
     </div>

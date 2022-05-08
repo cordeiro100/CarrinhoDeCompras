@@ -15,18 +15,48 @@
     </div>
   </nav>
   
+<div class="principal">
 
-<div *ngIf="oferta" class="container" >
-  <div class="row">
-    <div class="d-fle justify-content-center" >
-      <div class="card" style="width: 20rem;"  >
-        <h1>{{oferta.titulo}}</h1>
-        <img [src]="oferta.imagens">
-        <p>{{oferta.descricao}}</p>
-        <p>{{oferta.valor | currency: 'BRL': true}}</p>
-      </div>
-    </div>
-  </div>
+
+
+
+
+  <aside>
+  <div class="produto">
+<div class="card" style="width: 30rem;">
+<h5>{{oferta.titulo}}</h5>
+<img [src]="oferta.imagens">
+<h5 class="valor">{{oferta.valor | currency: 'BRL': true}} </h5>
+
+</div>
+<p class="descricao">{{oferta.descricao}}</p>
 </div>
 
+</aside>
 
+
+
+
+
+
+
+<main>
+  <div class="servicos">
+    <h3>Serviços</h3>
+    <p>Garantia Estendida: R$0,00 </p>
+    <hr>
+    <p>Roubo e Furto: R$0,00</p>
+    <hr>
+    <div class="valor">
+    <p>Valor total dos serviços</p>
+    <h2>R$0,00</h2>
+  </div>
+
+  <button class="comprando" type="button">adicionar ao carrinho</button>
+  </div>
+
+</main>
+
+
+
+</div>
