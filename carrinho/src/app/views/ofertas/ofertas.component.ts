@@ -15,6 +15,7 @@ export class OfertasComponent implements OnInit {
   @Input() id: string;
 
   public oferta: Ofertas;
+  
 
   constructor(
     private route: ActivatedRoute,

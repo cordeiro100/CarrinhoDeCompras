@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Ofertas } from 'src/app/models/ofertas';
 import { CarrinhoService } from 'src/app/services/carrinho.service';
 import { OrdemCompraService } from 'src/app/services/ordem-compra.service';
 
@@ -15,6 +16,7 @@ numero: string
 complemento: string
 formaPagamento: string
 compraForm: FormGroup
+oferta: Ofertas[] = []
 
   constructor(private formBuilder: FormBuilder, private ordemCompraService: OrdemCompraService, private carrinhoService: CarrinhoService) { }
 
@@ -26,7 +28,7 @@ compraForm: FormGroup
       formaPagamento: ["",[Validators.required]]
     })
 
-      console.log(this.carrinhoService.exbibirItens())
+     this.oferta = this.carrinhoService.exbibirItens()
 
 
     this.comprar()

@@ -5,53 +5,30 @@
       <h5>Sua Compra</h5>
       <hr />
 
-      <div class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
-        <div class="form-group col-sm-1">
-          <img src="/assets/img1.jpg" class="img-fluid">
-        </div>
-        <div class="form-group col-sm-6">
-          Super Burger
-          <br />
-          Rodízio de Mini-hambúrger com opção de entrada.
-        </div>
 
-        <div>
-          <div class="row">
-            <div class="col">
-              <button type="button" class="btn btn-link">-</button>
-              1
-              <button type="button" class="btn btn-link">+</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group col-sm-3 d-flex justify-content-end">
-          29.90
-        </div>
-      </div>
       
-      <div class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
+      <div *ngFor="let ofertas of oferta" class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
         <div class="form-group col-sm-1">
-          <img src="/assets/img2.jpg" class="img-fluid">
+          <img [src]="ofertas.imagens" class="img-fluid">
         </div>
         <div class="form-group col-sm-6">
-          Hamburgao
+         {{ofertas.titulo}}
           <br />
-          Diversão e muita comida
+          {{ofertas.descricao}}
         </div>
 
         <div>
           <div class="row">
             <div class="col">
               <button type="button" class="btn btn-link">-</button>
-              1
+              {{ofertas.quantidade}}
               <button type="button" class="btn btn-link">+</button>
             </div>
           </div>
         </div>
 
         <div class="form-group col-sm-3 d-flex justify-content-end">
-          31.90
+          {{ofertas.quantidade * ofertas.valor | currency: 'BRL': true}}
         </div>
       </div>
       
