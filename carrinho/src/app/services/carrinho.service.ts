@@ -20,7 +20,7 @@ public incluirItem(oferta: Ofertas): void{
   
 
 
-let itemCarrinhoEncontrado = this.itens.find((oferta: Ofertas) => oferta.id === oferta.id)
+let itemCarrinhoEncontrado = this.itens.find((item: Ofertas) => item.id === oferta.id)
 
 
   if(itemCarrinhoEncontrado){
@@ -46,7 +46,7 @@ valorTotal(): number{
 
 adicionarQuantidade(oferta: Ofertas): void {
 
-let itemCarrinhoEncontrado = this.itens.find((oferta: Ofertas) => oferta.id === oferta.id)
+let itemCarrinhoEncontrado = this.itens.find((item: Ofertas) => item.id === oferta.id)
 
   if(itemCarrinhoEncontrado){
     itemCarrinhoEncontrado.quantidade += 1
@@ -55,7 +55,7 @@ let itemCarrinhoEncontrado = this.itens.find((oferta: Ofertas) => oferta.id === 
 
 subtrairQuantidade(oferta: Ofertas):void{
 
- let itemCarrinhoEncontrado = this.itens.find((oferta: Ofertas) => oferta.id === oferta.id)
+ let itemCarrinhoEncontrado = this.itens.find((item: Ofertas) => item.id === oferta.id)
  
  if(itemCarrinhoEncontrado){
    itemCarrinhoEncontrado.quantidade -= 1
