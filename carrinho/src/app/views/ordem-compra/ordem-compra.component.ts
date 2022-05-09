@@ -26,9 +26,12 @@ compraForm: FormGroup
       formaPagamento: ["",[Validators.required]]
     })
 
+      console.log(this.carrinhoService.exbibirItens())
+
+
     this.comprar()
 
-    console.log("Array de carrinho", this.carrinhoService.exibirItens())
+  
   }
 
 

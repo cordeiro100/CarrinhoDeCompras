@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ItemCarrinho } from '../models/item-carrinho';
-
 import { Ofertas } from '../models/ofertas';
 
 @Injectable({
@@ -9,15 +7,22 @@ import { Ofertas } from '../models/ofertas';
 export class CarrinhoService {
 
 
-public itens: ItemCarrinho[] = []
+public itens: Ofertas[] = []
 
-public exibirItens(): ItemCarrinho[]{
+public exbibirItens(): Ofertas[]{
   return this.itens
 }
 
-public incluirItens(oferta: Ofertas): void{
+public incluirItem(oferta: Ofertas): void{
+  console.log('Oferta recebida no serviço', oferta)
+
+
+this.itens.push(oferta)
 
 }
+
+
+
 
   constructor() { }
 }

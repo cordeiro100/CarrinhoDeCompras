@@ -19,6 +19,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OfertasComponent } from './views/ofertas/ofertas.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CarrinhoService } from './services/carrinho.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     provideStorage(() => getStorage()),
     NgbModule
   ],
-  providers: [
+  providers: [ CarrinhoService,
     ScreenTrackingService,UserTrackingService
   ],
   bootstrap: [AppComponent]
