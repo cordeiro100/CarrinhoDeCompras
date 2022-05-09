@@ -26,7 +26,7 @@ export class OfertasComponent implements OnInit {
 
   ngOnInit() {
     
-     console.log(this.carrinhoService.exbibirItens())
+     console.log(this.carrinhoService.exibirItens())
     
     
     console.log(this.route.snapshot.params)
@@ -46,7 +46,7 @@ export class OfertasComponent implements OnInit {
     adicionarItemCarrinho(){
       this.carrinhoService.incluirItem(this.oferta)
       
-     console.log(this.carrinhoService.exbibirItens()) 
+     console.log(this.carrinhoService.exibirItens()) 
     
     }
 

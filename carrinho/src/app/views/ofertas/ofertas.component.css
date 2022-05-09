@@ -132,18 +132,18 @@ font-size: 20px;
     border: 0px solid;
     border-radius: 4px;
     width: 600px;
-    height: 400px;
+    height: 600px;
     font-family: 'Rye', cursive;
     background-color: white;
     text-align: center;
     opacity: 0.8;
-    margin-top: -440px;
+    margin-top: -240px;
 
  
    
 }
 
-.servicos button{
+.comprando{
     margin-top: 40px;
     width: 350px;
     padding: 20px;
@@ -153,6 +153,19 @@ font-size: 20px;
     border: 2px solid;
     border-color: rgb(0, 117, 119);
     color: rgb(0, 117, 119);
+}
+
+.button2{
+    margin-top: 40px;
+    width: 350px;
+    padding: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid;
+    border-color: rgb(0, 117, 119);
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 117, 119)
 }
     
 .servicos button:hover{
@@ -165,5 +178,3 @@ font-size: 20px;
 .valor{
     background-color: rgb(231, 255, 231);
 }
-
-

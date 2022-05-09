@@ -18,7 +18,7 @@ formaPagamento: string
 compraForm: FormGroup
 oferta: Ofertas[] = []
 
-  constructor(private formBuilder: FormBuilder, private ordemCompraService: OrdemCompraService, private carrinhoService: CarrinhoService) { }
+  constructor(private formBuilder: FormBuilder, private ordemCompraService: OrdemCompraService, public carrinhoService: CarrinhoService) { }
 
   ngOnInit(): void {
     this.compraForm = this.formBuilder.group({
@@ -28,7 +28,7 @@ oferta: Ofertas[] = []
       formaPagamento: ["",[Validators.required]]
     })
 
-     this.oferta = this.carrinhoService.exbibirItens()
+     this.oferta = this.carrinhoService.exibirItens()
 
 
     this.comprar()
@@ -40,6 +40,14 @@ oferta: Ofertas[] = []
 comprar(){
   this.ordemCompraService.addPedido(this.compraForm.value)
   .then(() => this.compraForm.reset())
+}
+
+adicionar(oferta: Ofertas): void{
+  this.carrinhoService.adicionarQuantidade(oferta)
+}
+
+subtrair(oferta: Ofertas):void {
+  this.carrinhoService.subtrairQuantidade(oferta)
 }
 
 }
