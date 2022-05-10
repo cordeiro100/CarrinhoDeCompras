@@ -20,7 +20,7 @@
 
 <div class="container">
   <div class="ordem-compra">
-    <form [formGroup]="compraForm" (ngSubmit)="comprar()">
+    <form #pedidoForm="ngForm" [formGroup]="compraForm" (ngSubmit)="comprar()">
     
       <h5>Sua Compra</h5>
       <hr />

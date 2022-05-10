@@ -67,7 +67,9 @@ subtrairQuantidade(oferta: Ofertas):void{
 
 }
 
-
+limparCarrinho():void{
+this.itens = []
+}
 
   constructor() { }
 }

@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <div class="card" style="width: 20rem;">
+            <div *ngFor="let pedido of pedidos">
+                    <p>{{pedido.endereco}}</p>
+                    <p>{{pedido.numero}}</p>
+                    <p>{{pedido.complemento}}</p>
+                    <p>{{pedido.formaPagamento}}</p>
+                    <p>{{pedido.itens}}</p>
+            </div>
+        
+        </div>
+    </div>
+
+</div>

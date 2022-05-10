@@ -20,6 +20,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OfertasComponent } from './views/ofertas/ofertas.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarrinhoService } from './services/carrinho.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatBadgeModule} from '@angular/material/badge';
+import { AdminComponent } from './views/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import { CarrinhoService } from './services/carrinho.service';
     HomeComponent,
     OrdemCompraComponent,
     OfertasComponent,
+    AdminComponent,
     
   ],
   imports: [
@@ -34,6 +38,7 @@ import { CarrinhoService } from './services/carrinho.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MatBadgeModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
@@ -44,7 +49,8 @@ import { CarrinhoService } from './services/carrinho.service';
     providePerformance(() => getPerformance()),
     provideRemoteConfig(() => getRemoteConfig()),
     provideStorage(() => getStorage()),
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule
   ],
   providers: [ CarrinhoService,
     ScreenTrackingService,UserTrackingService

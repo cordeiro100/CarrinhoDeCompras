@@ -14,7 +14,8 @@ export class OrdemCompraService {
   constructor(private fireStore: Firestore) { }
   
   addPedido(pedidos: Pedido){
-    const numeroPedido = collection(this.fireStore, 'pedidos')
+    const numeroPedido = collection(this.fireStore, 'pedidos'
+    )
     return addDoc(numeroPedido, pedidos)
   }
 }
