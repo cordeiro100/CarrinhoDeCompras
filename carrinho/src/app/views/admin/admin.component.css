@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Rye&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+    font-size: 50px;
+    position: relative;
+    top: 30px;
+    font-family: 'Rye', cursive;
+ 
+}
+.container{
+    display: flex;
+}
+
+.principal{
+   
+    background-image: url("src/assets/background.png");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar{
+    padding: 30px;
+}
+
+.navbar-brand img{
+    width: 120px;
+    box-shadow: 0px 0px 30px rgb(0, 251, 255), 0px 0px 10px silver;
+    border-radius: 50%;
+}
+bi-cart4{
+    font-size: 30px;
+    color: wheat;
+}
+
+.navbar a{
+    color: white;
+    font-family: 'Rye', cursive;
+}
+
+.navbar-toggler{
+    background-color: white;
+}
+
+.card{
+    font-family: 'Rye', cursive;
+}
