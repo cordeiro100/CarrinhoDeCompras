@@ -6,11 +6,21 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <input type="search" placeholder="Procure por sua marca">
+   
+      <div class="links">
+      <div>
+        <h1 *ngIf="user$ | async as user">Olá, {{ user.email }}</h1>
+      <p class="ou">Faça<a routerLink="/login">Login</a> ou</p>
+    </div>
+      <div>
+      <p>Crie seu<a routerLink="/cadastro">Cadastro</a></p>
+    </div>
+  </div>
+     
       <ul class="navbar-nav">
       <li class="nav-item">
   
-      <a routerLink="/ordem-compra"><i  class="bi bi-cart4" matBadge="0" matBadgeOverlap="false"></i></a>
+      <a routerLink="/ordem-compra"><i  class="bi bi-cart4" matBadge="{{itemTotal}}" matBadgeOverlap="false"></i></a>
       </li>
       </ul>
     </div>

@@ -29,21 +29,21 @@
       <div *ngIf="carrinhoService.exibirItens().length; else carrinhoVazio">
       <div *ngFor="let ofertas of oferta" class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
        
-        <div class="form-group col-sm-1">
+        <div class="form-group col-sm-2">
           <img [src]="ofertas.imagens" class="img-fluid">
         </div>
         <div class="form-group col-sm-6">
-         {{ofertas.titulo}}
+         <h2>{{ofertas.titulo}}</h2>
           <br />
-          {{ofertas.descricao}}
+         <p> {{ofertas.descricao}}</p>
         </div>
 
         <div>
           <div class="row">
             <div class="col">
-              <button (click)="subtrair(ofertas)" type="button" class="btn btn-link">-</button>
+              <button class="buttonSubtrair" (click)="subtrair(ofertas)" type="button" class="btn btn-link">-</button>
               {{ofertas.quantidade}}
-              <button (click)="adicionar(ofertas)" type="button" class="btn btn-link">+</button>
+              <button class="buttonSomar" (click)="adicionar(ofertas)" type="button" class="btn btn-link">+</button>
             </div>
           </div>
         </div>
@@ -74,19 +74,31 @@
 
       <div class="form-row">
         
+        
         <div class="form-group col-md-6">
-          <input type="text" class="form-control is-invalid" placeholder="Endereço" autocomplete="off" minlength="5" required name="endereco" id="endereco" formControlName="endereco" [(ngModel)]="endereco">
+          <label for="endereco">Digite seu endereço:</label>
+          <input class="endereco" type="text" id="endereco" name="endereco" formControlName="endereco" placeholder="Ex: Rua Orlando Correa" [(ngModel)]="endereco">
           <div class="invalid-feedback">Endereço inválido</div>
+          <small *ngIf="compraForm.get('endereco')?.errors?.['required']" class="text-danger d-block mt-2">
+            Um endereço é necessário
+          </small>
         </div>
 
+        <label for="numero">Digite o número da casa:</label>
         <div class="form-group col-md-2">
-          <input type="text" class="form-control is-valid" placeholder="Número" autocomplete="off" minlength="1" required name="numero" id="numero" formControlName="numero" [(ngModel)]="numero">
+          <input type="text" id="numero" name="numero" formControlName="numero" placeholder=" Ex: 225" [(ngModel)]="numero">
           <br />
-          <small class="form-text text-muted">Ok</small>
+          <small *ngIf="compraForm.get('numero')?.errors?.['required']" class="text-danger d-block mt-2">
+            O número da casa é necessário
+          </small>
+        
         </div>
-
+        <label for="complemento">Digite o complemento:</label>
         <div class="form-group col-md-4">
-          <input type="text" class="form-control" placeholder="Complemento" autocomplete="off" name="complemento" id="complemento" formControlName="complemento" [(ngModel)]="complemento">
+          <input type="text" id="complemento" name="complemento" formControlName="complemento" placeholder="Ex: Casa" [(ngModel)]="complemento">
+          <small *ngIf="compraForm.get('complemento')?.errors?.['required']" class="text-danger d-block mt-2">
+            Digite um complemento
+          </small>
         </div>
 
       </div>
@@ -98,18 +110,21 @@
       <div class="form-row">
           
         <div class="form-group col-md-3">
-          <select class="form-control is-invalid" name="formaPagamento" id="formaPagamento" formControlName="formaPagamento" [(ngModel)]="formaPagamento">
+          <select  name="formaPagamento" id="formaPagamento" formControlName="formaPagamento"  [(ngModel)]="formaPagamento">
             <option>Selecione uma opção</option>
             <option>Dinheiro</option>
             <option>Débito</option>
           </select>
+          <small *ngIf="compraForm.get('formaPagamento')?.errors?.['required']" class="text-danger d-block mt-2">
+            Escolha a forma de pagamento
+          </small>
 
           <div class="invalid-feedback">Selecione uma forma de pagamento</div>
         </div>
       </div>
 
       <hr />
-      <button type="submit" class="btn btn-primary btn-lg">Cofirmar compra</button>
+      <button type="submit" class="btn btn-primary btn-lg" [disabled]="!compraForm.valid">Cofirmar compra</button>
     </form>
   </div>
 </div>

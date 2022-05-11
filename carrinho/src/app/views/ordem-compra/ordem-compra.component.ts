@@ -9,74 +9,62 @@ import { OrdemCompraService } from 'src/app/services/ordem-compra.service';
 @Component({
   selector: 'app-ordem-compra',
   templateUrl: './ordem-compra.component.html',
-  styleUrls: ['./ordem-compra.component.css']
+  styleUrls: ['./ordem-compra.component.css'],
 })
 export class OrdemCompraComponent implements OnInit {
+  endereco: string;
+  numero: string;
+  complemento: string;
+  formaPagamento: string;
+  compraForm: FormGroup;
+  oferta: Ofertas[] = [];
 
-endereco: string
-numero: string
-complemento: string
-formaPagamento: string
-compraForm: FormGroup
-oferta: Ofertas[] = []
-
-  constructor(private formBuilder: FormBuilder, private ordemCompraService: OrdemCompraService, public carrinhoService: CarrinhoService, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private ordemCompraService: OrdemCompraService,
+    public carrinhoService: CarrinhoService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.compraForm = this.formBuilder.group({
-      endereco: ["", [Validators.required]],
-      numero: ["", [Validators.required]],
-      complemento: ["", [Validators.required]],
-      formaPagamento: ["",[Validators.required]]
+      endereco: ['', [Validators.required]],
+      numero: ['', [Validators.required]],
+      complemento: ['', [Validators.required]],
+      formaPagamento: ['', [Validators.required]],
+    });
 
-    
-    })
-
-
-
-     this.oferta = this.carrinhoService.exibirItens()
-
-
-
-
-  
+    this.oferta = this.carrinhoService.exibirItens();
   }
 
- 
+  comprar() {
+    if (this.carrinhoService.exibirItens().length === 0) {
+      alert('Você nao adicionou nenhum produto ao carrinho');
+    }
 
+    const pedido = new Pedido(
+      this.compraForm.value.endereco,
+      this.compraForm.value.numero,
+      this.compraForm.value.complemento,
+      this.compraForm.value.formaPagamento,
+      this.carrinhoService.exibirItens()
+    );
 
+    console.log(pedido);
 
-comprar(){
+    this.ordemCompraService
+      .addPedido(pedido)
+      .then(() => this.compraForm.reset());
 
-if(this.carrinhoService.exibirItens().length === 0 ) {
-  alert("Você nao adicionou nenhum produto ao carrinho")
-}
+    this.router.navigateByUrl('compraefetuada');
+    this.carrinhoService.limparCarrinho();
+  }
 
-const pedido = new Pedido(
-  this.compraForm.value.endereco,
-  this.compraForm.value.numero,
-  this.compraForm.value.complemento,
-  this.compraForm.value.formaPagamento,
-  this.carrinhoService.exibirItens()
-)
+  adicionar(oferta: Ofertas): void {
+    this.carrinhoService.adicionarQuantidade(oferta);
+  }
 
-console.log(pedido)
-
-  
-this.ordemCompraService.addPedido(pedido)
-.then(() => this.compraForm.reset())
-
-this.router.navigateByUrl("compraefetuada")
-this.carrinhoService.limparCarrinho()
-
-}
-
-adicionar(oferta: Ofertas): void{
-  this.carrinhoService.adicionarQuantidade(oferta)
-}
-
-subtrair(oferta: Ofertas):void {
-  this.carrinhoService.subtrairQuantidade(oferta)
-}
-
+  subtrair(oferta: Ofertas): void {
+    this.carrinhoService.subtrairQuantidade(oferta);
+  }
 }

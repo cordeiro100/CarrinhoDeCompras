@@ -27,20 +27,43 @@ bi-cart4{
 
 .principal{
    
-    background-image: url("src/assets/compra-background.png");
+    background-image: url("src/assets/background.png");
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-size: auto;
+ 
  
    
 }
 
+.container{
+    background-color: rgb(165, 165, 165);
+    height: 500px;
+    opacity: 0.8;
+
+}
+
 h1{
-    font-size: 120px;
+    font-size: 90px;
     color: white;
     text-align: center;
+    margin-top: 250px;
+    font-family: 'Rye', cursive;
 
+}
+.carousel-item img{
+    height: 300px;
+}
+
+a{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 40px;
+    font-family: 'Rye', cursive;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
 }

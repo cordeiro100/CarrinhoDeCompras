@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
         <li class="nav-item">
-        <a routerLink="/ordem-compra"><i class="bi bi-cart4"></i></a>
+        <a routerLink="/ordem-compra"><i class="bi bi-cart pop-up" matBadge="{{itemTotal}}" matBadgeOverlap="false"></i>{{itemTotal}}</a>
         </li>
         </ul>
       </div>
@@ -41,7 +41,7 @@
 
 
 <main>
-  <div *ngIf="oferta" class="servicos">
+  <div *ngIf="oferta"  class="servicos">
     <h3>Serviços</h3>
     <p>Garantia Estendida: R$0,00 </p>
     <hr>
@@ -55,6 +55,10 @@
   <button (click)="adicionarItemCarrinho()"  class="comprando" type="button">adicionar ao carrinho</button>
   <button class="button2" routerLink="" type="button">continuar comprando</button>
   </div>
+<ng-template #semItens>
+
+</ng-template>
+
 
 </main>
 

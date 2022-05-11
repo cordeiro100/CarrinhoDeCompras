@@ -25,6 +25,12 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { AdminComponent } from './views/admin/admin.component';
 import { CompraefetuadaComponent } from './views/compraefetuada/compraefetuada.component';
 
+import { ToastrModule } from 'ngx-toastr';
+import { LoginComponent } from './views/login/login.component';
+import { CadastroComponent } from './views/cadastro/cadastro.component';
+import { HotToastModule } from '@ngneat/hot-toast';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +39,10 @@ import { CompraefetuadaComponent } from './views/compraefetuada/compraefetuada.c
     OfertasComponent,
     AdminComponent,
     CompraefetuadaComponent,
-    
+    LoginComponent,
+    CadastroComponent,
+  
+ 
   ],
   imports: [
     BrowserModule,
@@ -41,6 +50,9 @@ import { CompraefetuadaComponent } from './views/compraefetuada/compraefetuada.c
     FormsModule,
     ReactiveFormsModule,
     MatBadgeModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
@@ -52,7 +64,8 @@ import { CompraefetuadaComponent } from './views/compraefetuada/compraefetuada.c
     provideRemoteConfig(() => getRemoteConfig()),
     provideStorage(() => getStorage()),
     NgbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HotToastModule.forRoot()
   ],
   providers: [ CarrinhoService,
     ScreenTrackingService,UserTrackingService
