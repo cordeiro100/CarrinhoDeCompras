@@ -66,7 +66,7 @@ console.log(pedido)
 this.ordemCompraService.addPedido(pedido)
 .then(() => this.compraForm.reset())
 
-this.router.navigateByUrl("admin")
+this.router.navigateByUrl("compraefetuada")
 this.carrinhoService.limparCarrinho()
 
 }

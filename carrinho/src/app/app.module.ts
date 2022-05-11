@@ -23,6 +23,7 @@ import { CarrinhoService } from './services/carrinho.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatBadgeModule} from '@angular/material/badge';
 import { AdminComponent } from './views/admin/admin.component';
+import { CompraefetuadaComponent } from './views/compraefetuada/compraefetuada.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AdminComponent } from './views/admin/admin.component';
     OrdemCompraComponent,
     OfertasComponent,
     AdminComponent,
+    CompraefetuadaComponent,
     
   ],
   imports: [
