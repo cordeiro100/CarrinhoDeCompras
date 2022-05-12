@@ -5,23 +5,31 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { OrdemCompraComponent } from './views/ordem-compra/ordem-compra.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { provideFunctions,getFunctions } from '@angular/fire/functions';
-import { provideMessaging,getMessaging } from '@angular/fire/messaging';
-import { providePerformance,getPerformance } from '@angular/fire/performance';
-import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
-import { provideStorage,getStorage } from '@angular/fire/storage';
+import {
+  provideAnalytics,
+  getAnalytics,
+  ScreenTrackingService,
+  UserTrackingService,
+} from '@angular/fire/analytics';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideFunctions, getFunctions } from '@angular/fire/functions';
+import { provideMessaging, getMessaging } from '@angular/fire/messaging';
+import { providePerformance, getPerformance } from '@angular/fire/performance';
+import {
+  provideRemoteConfig,
+  getRemoteConfig,
+} from '@angular/fire/remote-config';
+import { provideStorage, getStorage } from '@angular/fire/storage';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OfertasComponent } from './views/ofertas/ofertas.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarrinhoService } from './services/carrinho.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge';
 import { AdminComponent } from './views/admin/admin.component';
 import { CompraefetuadaComponent } from './views/compraefetuada/compraefetuada.component';
 
@@ -29,7 +37,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './views/login/login.component';
 import { CadastroComponent } from './views/cadastro/cadastro.component';
 import { HotToastModule } from '@ngneat/hot-toast';
-
+import { MatIconModule } from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -41,8 +50,6 @@ import { HotToastModule } from '@ngneat/hot-toast';
     CompraefetuadaComponent,
     LoginComponent,
     CadastroComponent,
-  
- 
   ],
   imports: [
     BrowserModule,
@@ -53,6 +60,9 @@ import { HotToastModule } from '@ngneat/hot-toast';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     FormsModule,
+    MatIconModule,
+    MatMenuModule,
+
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
@@ -65,11 +75,9 @@ import { HotToastModule } from '@ngneat/hot-toast';
     provideStorage(() => getStorage()),
     NgbModule,
     BrowserAnimationsModule,
-    HotToastModule.forRoot()
+    HotToastModule.forRoot(),
   ],
-  providers: [ CarrinhoService,
-    ScreenTrackingService,UserTrackingService
-  ],
-  bootstrap: [AppComponent]
+  providers: [CarrinhoService, ScreenTrackingService, UserTrackingService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

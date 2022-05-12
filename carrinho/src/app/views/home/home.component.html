@@ -1,88 +1,151 @@
-
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffffff;">
+<nav
+  class="navbar navbar-expand-lg navbar-light"
+  style="background-color: #ffffff"
+>
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink=""><img src="assets/fashion.png"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" routerLink=""><img src="assets/fashion.png" /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-   
-      <div class="links">
-      <div>
-        <h1 *ngIf="user$ | async as user">Olá, {{ user.email }}</h1>
-      <p class="ou">Faça<a routerLink="/login">Login</a> ou</p>
-    </div>
-      <div>
-      <p>Crie seu<a routerLink="/cadastro">Cadastro</a></p>
-    </div>
-  </div>
-     
+      
+      
+      <ng-container *ngIf="authService.currentUser$ | async as user; else loginButton">
+        <button class="botao-login" mat-button  [matMenuTriggerFor]="userMenu">
+          <mat-icon class="icon">account_circle</mat-icon>
+            <h2 class="displayName">{{user.displayName}}</h2>
+            <mat-icon>expand_more</mat-icon>
+        </button>
+      </ng-container>
+      <ng-template #loginButton>
+      <button class="botao-login" mat-button routerLink="login">
+        <mat-icon>login</mat-icon>
+       <p>Login</p>
+      </button>
+    </ng-template>
+    <mat-menu #userMenu="matMenu">
+      <button class="logout" mat-menu-item (click)="logOut()">Logout</button>
+    </mat-menu>
+
       <ul class="navbar-nav">
-      <li class="nav-item">
-  
-      <a routerLink="/ordem-compra"><i  class="bi bi-cart4" matBadge="{{itemTotal}}" matBadgeOverlap="false"></i></a>
-      </li>
+        <li class="nav-item">
+          <a routerLink="/ordem-compra"
+            ><i
+              class="bi bi-cart4"
+              matBadge="{{ itemTotal }}"
+              matBadgeOverlap="false"
+            ></i
+          ></a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
-<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+<div
+  id="carouselExampleDark"
+  class="carousel carousel-dark slide"
+  data-bs-ride="carousel"
+>
   <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="2000">
-      <img src="assets/carousel1.png" class="d-block w-100" alt="Imagem corrida">
-      <div class="carousel-caption d-none d-md-block">
-       
-       
-      </div>
+      <img
+        src="assets/carousel1.png"
+        class="d-block w-100"
+        alt="Imagem corrida"
+      />
+      <div class="carousel-caption d-none d-md-block"></div>
     </div>
     <div class="carousel-item" data-bs-interval="2000">
-      <img src="assets/carousel2.png" class="d-block w-100" alt="Imagem malhando">
-      <div class="carousel-caption d-none d-md-block">
-      
-      </div>
+      <img
+        src="assets/carousel2.png"
+        class="d-block w-100"
+        alt="Imagem malhando"
+      />
+      <div class="carousel-caption d-none d-md-block"></div>
     </div>
     <div class="carousel-item">
-      <img src="assets/carousel3.png" class="d-block w-100" alt="Imagem correndo">
-      <div class="carousel-caption d-none d-md-block">
-       
-      </div>
+      <img
+        src="assets/carousel3.png"
+        class="d-block w-100"
+        alt="Imagem correndo"
+      />
+      <div class="carousel-caption d-none d-md-block"></div>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleDark"
+    data-bs-slide="prev"
+  >
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleDark"
+    data-bs-slide="next"
+  >
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
+<h1 class="bem-vindo" *ngIf="user$ | async as user">Seja bem vindo {{user.email}}</h1>
 <div class="background">
-<div class="container">
-<div class="row">
-  <div class="d-flex justify-content-center" >
-    
+  <div class="container">
+    <div class="row">
+      <div class="d-flex justify-content-center">
+        <div
+          class="card card1"
+          style="width: 20rem"
+          *ngFor="let ofertas of oferta"
+        >
+          <h5>{{ ofertas.titulo }}</h5>
+          <img [src]="ofertas.imagens" />
 
-    <div class="card  card1" style="width: 20rem" *ngFor="let ofertas of oferta">
-      <h5>{{ofertas.titulo}}</h5>
-      <img [src]="ofertas.imagens" />
- 
-      <p>{{ofertas.valor | currency: 'BRL': true}}</p>
-      <a [routerLink]="['/ofertas', ofertas.id]"><button class="btn btn-primary btn--lg" style="background-color: red;" type="button">Ver oferta</button></a>
+          <p>{{ ofertas.valor | currency: "BRL":true }}</p>
+          <a [routerLink]="['/ofertas', ofertas.id]"
+            ><button
+              class="btn btn-primary btn--lg"
+              style="background-color: red"
+              type="button"
+            >
+              Ver oferta
+            </button></a
+          >
+        </div>
+      </div>
     </div>
-
-  
-  
-  
-  
-  
   </div>
-</div>
-</div>
 </div>

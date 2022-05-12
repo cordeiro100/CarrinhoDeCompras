@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { timeStamp } from 'console';
 import { Filter } from 'src/app/models/filter';
 
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit {
  itemTotal: number;
 
 
-  constructor(private ofertaService: OfertaService, private carrinhoService: CarrinhoService, private authService: AuthenticationService) { }
+  constructor(private ofertaService: OfertaService, private carrinhoService: CarrinhoService, public authService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
 console.log("Oninit")
@@ -40,8 +41,11 @@ this.carrinhoService.getTotalItens().subscribe(res =>{
 
 
   }
-
-
+logOut(){
+  this.authService.logout().subscribe(() =>{
+    this.router.navigateByUrl("/")
+  })
+}
 
 
 

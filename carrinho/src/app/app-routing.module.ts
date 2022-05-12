@@ -8,6 +8,7 @@ import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { OfertasComponent } from './views/ofertas/ofertas.component';
 import { OrdemCompraComponent } from './views/ordem-compra/ordem-compra.component';
+import { AuthenticationGuardService } from './services/authentication-guard.service';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},

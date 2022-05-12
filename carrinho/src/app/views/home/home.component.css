@@ -1,143 +1,172 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Rye&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Koulen&family=Rye&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
-@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
-@import 'animate.css';
+@import url("https://fonts.googleapis.com/css2?family=Rye&display=swap");
+@import "animate.css";
 
-.navbar{
-    padding: 0px;
+.navbar {
+  padding: 0px;
 }
 
-i{
-    color: rgb(0, 0, 0);
-    font-size: 40px;
-   
-
- 
+i {
+  color: rgb(0, 0, 0);
+  font-size: 40px;
 }
 
-ul{
-    position: absolute;
+mat-icon {
+  color: black;
+}
+
+
+
+.botao-login {
+  border: 0px solid;
+  width: 100px;
+  display: flex;
+  padding: 1px;
+  border-radius: 8px;
+  background-color: white;
+  position: absolute;
+  right: 0;
+}
+.botao-login p{
+    margin-top: 3px;
+    margin-left: 10px;
+    font-size: 20px;
+    font-family: "Koulen", cursive;
+}
+
+ul {
+  position: absolute;
   right: 200px;
 }
-h5{
-    font-family: 'Koulen', cursive;
-    font-size: 20px;
+h5 {
+  font-family: "Koulen", cursive;
+  font-size: 20px;
 }
 
-
-
-.navbar-brand img{
-    width: 140px;
-    box-shadow: 0px 0px 30px rgb(188, 0, 0), 0px 0px 10px silver;
-    border-radius: 50%;
+.navbar-brand img {
+  width: 140px;
+  box-shadow: 0px 0px 30px rgb(188, 0, 0), 0px 0px 10px silver;
+  border-radius: 50%;
 }
-bi-cart4{
-    font-size: 30px;
-    color: wheat;
+bi-cart4 {
+  font-size: 30px;
+  color: wheat;
 }
 
 .links a {
-    margin: 0 0 0 5px;
+  margin: 0 0 0 5px;
 }
 
 .links a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-
-
 
 .links {
-    margin-left: 30px;
-    font-family: 'Rye', cursive;
+  margin-left: 30px;
+  font-family: "Rye", cursive;
 }
 
-.navbar a{
-    color: rgb(83, 83, 83);
-    font-family: 'Rye', cursive;
-    font-weight: bold;
-    text-decoration: none;
+.navbar a {
+  color: rgb(83, 83, 83);
+  font-family: "Rye", cursive;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .navbar input {
-    width: 500px;
-    border-radius: 30px;
-    border: 1px solid;
-    border-color: silver;
-    padding: 10px;
-    margin-left: 300px;
-    font-family: 'Koulen', cursive;
-   
-   
+  width: 500px;
+  border-radius: 30px;
+  border: 1px solid;
+  border-color: silver;
+  padding: 10px;
+  margin-left: 300px;
+  font-family: "Koulen", cursive;
+}
+
+.logout{
+    font-size: 20px;
+    font-family: "Koulen", cursive;
+}
+
+.icon {
+    font-size: 35px;
+    display: flex;
+    position: absolute;
+    right: 130px;
 
 }
 
 
-.navbar-toggler{
-    background-color: white;
+
+
+.navbar-toggler {
+  background-color: white;
 }
 
-.carousel-item img{
-    height: 300px;
+.carousel-item img {
+  height: 300px;
 }
 
-.background{
-    background-image: url("src/assets/background.png");
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
+.bem-vindo{
     text-align: center;
+    font-family: "Koulen", cursive;
+    margin-top: 15px;
+  
 }
-.container{
-    background-color: #bfbfbf;
-    height: 600px;
-    border: 0px solid;
-    border-radius: 16px;
-    opacity: 0.9;
-    
- 
+
+.background {
+  background-image: url("src/assets/background.png");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+.container {
+  background-color: #bfbfbf;
+  height: 600px;
+  border: 0px solid;
+  border-radius: 16px;
+  opacity: 0.9;
 }
 
 .container p {
-    font-size: 30px;
+  font-size: 30px;
 }
 
-.container h5{
-    font-size: 20px;
+.container h5 {
+  font-size: 20px;
 }
-.card{
-    text-align: center;
-   
-    margin: 100px 0 0 40px;
-    background-color: bisque;
-    font-family: 'Koulen', cursive;
-    box-shadow: 0px 0px 30px rgb(128, 13, 0), 0px 0px 10px silver;
-    height: 400px;
-    animation: backInLeft;
-    animation-duration: 1s;
+.card {
+  text-align: center;
+
+  margin: 100px 0 0 40px;
+  background-color: bisque;
+  font-family: "Koulen", cursive;
+  box-shadow: 0px 0px 30px rgb(128, 13, 0), 0px 0px 10px silver;
+  height: 400px;
+  animation: backInLeft;
+  animation-duration: 1s;
 }
 
-.card h5{
-    margin-top: 10px;
+.card h5 {
+  margin-top: 10px;
 }
 
-.card img{
-    margin-top: 20px;
+.card img {
+  margin-top: 20px;
 }
 
 .card p {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
-
-
-.card1:hover{
-    transform: scale(1.1);
+.card1:hover {
+  transform: scale(1.1);
 }
-.card2:hover{
-    transform: scale(1.1);
+.card2:hover {
+  transform: scale(1.1);
 }
-.card3:hover{
-    transform: scale(1.1);
+.card3:hover {
+  transform: scale(1.1);
 }
-
