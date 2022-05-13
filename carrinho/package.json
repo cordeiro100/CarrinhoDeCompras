@@ -25,6 +25,7 @@
     "@ng-bootstrap/ng-bootstrap": "^12.1.1",
     "@ngneat/hot-toast": "^4.1.0",
     "@ngneat/overview": "^3.0.0",
+    "@ngneat/until-destroy": "^9.2.0",
     "@popperjs/core": "^2.10.2",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.1.3",

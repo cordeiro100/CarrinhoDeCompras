@@ -44,6 +44,9 @@ export class OrdemCompraComponent implements OnInit {
     if (this.carrinhoService.exibirItens().length === 0) {
       this.alert();
       
+      
+
+
     } else {
       const pedido = new Pedido(
         this.compraForm.value.endereco,
@@ -59,7 +62,7 @@ export class OrdemCompraComponent implements OnInit {
         .addPedido(pedido)
         .then(() => this.compraForm.reset());
 
-      this.router.navigateByUrl('compraefetuada');
+      this.router.navigateByUrl('/compraefetuada');
       this.carrinhoService.limparCarrinho();
     }
   }

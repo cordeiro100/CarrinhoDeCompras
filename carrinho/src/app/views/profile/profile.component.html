@@ -47,14 +47,14 @@
     </button>
   </div>
 
-  <input class="input" #inputField type="file" hidden  >
-  <form>
-  <input type="text" matInput formControlName="firstName" placeholder="First Name">
-  <input type="text" matInput formControlName="lastName" placeholder="Last Name">
-  <input type="text" matInput formControlName="displayName" placeholder="Display Name">
-  <input type="text" matInput formControlName="phone" placeholder="Phone">
-  <input type="text" matInput formControlName="address" placeholder="Address">
-  <button class="botao-save" type="submit">Save</button>
+  <input #inputField hidden type="file" (change)="uploadFile($event, user)" />
+  <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+  <input type="text" id="firstName" name="firstName" formControlName="firstName" placeholder="First Name" >
+  <input type="text" id="lastName"  name="lastName" formControlName="lastName" placeholder="Last Name">
+  <input type="text" id="displayName" name="displayName" formControlName="displayName" placeholder="Display Name">
+  <input type="text" id="phone"     name="phone" formControlName="phone" placeholder="Phone">
+  <input type="text" id="address"  name="address" formControlName="address" placeholder="Address">
+  <button class="botao-save" type="submit" [disabled]="!profileForm.valid">Save</button>
 </form>
 </div>
 
