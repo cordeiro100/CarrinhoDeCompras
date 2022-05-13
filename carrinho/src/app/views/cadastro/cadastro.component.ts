@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
-import { User } from 'src/app/models/user';
+import { switchMap } from 'rxjs';
+
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -12,7 +14,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class CadastroComponent implements OnInit {
   cadastroForm: FormGroup;
-  nome: string;
+  name: string;
   sobrenome: string;
   email: string;
   password: string;
@@ -21,34 +23,37 @@ export class CadastroComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthenticationService,
     private toast: HotToastService,
-    private router: Router
+    private router: Router,
+    private usersService: UsersService
   ) {}
 
   ngOnInit(): void {
     this.cadastroForm = this.formBuilder.group({
-      nome: ['', [Validators.required]],
+      name: ['', [Validators.required]],
       sobrenome: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.maxLength(6)]],
     });
   }
 
-  userModel = new User('', '', '', '');
 
   cadastrar() {
     if (!this.cadastroForm.valid) return;
-    const { nome, sobrenome, email, password } = this.cadastroForm.value;
+    const { name, email, password } = this.cadastroForm.value;
     this.authService
-      .cadastro(nome, sobrenome, email, password)
+      .cadastro(email, password)
       .pipe(
+        switchMap(({ user: { uid } }) =>
+          this.usersService.addUser({ uid, email, displayName: name })
+        ),
         this.toast.observe({
-          success: 'Cadastro criado com sucesso!',
-          loading: 'Carregando cadastro...',
-          error: (message) => `${message}`,
+          success: 'Cadastro Realizado',
+          loading: 'Carregando cadastro',
+          error: ({ message }) => `${message}`,
         })
       )
       .subscribe(() => {
-        this.router.navigateByUrl('/login');
+        this.router.navigate(['/login']);
       });
   }
 }

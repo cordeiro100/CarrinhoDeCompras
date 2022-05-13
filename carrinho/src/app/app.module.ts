@@ -39,6 +39,8 @@ import { CadastroComponent } from './views/cadastro/cadastro.component';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { MatIconModule } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
+import { ProfileComponent } from './views/profile/profile.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import {MatMenuModule} from '@angular/material/menu';
     CompraefetuadaComponent,
     LoginComponent,
     CadastroComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,10 +65,11 @@ import {MatMenuModule} from '@angular/material/menu';
     FormsModule,
     MatIconModule,
     MatMenuModule,
-
+    MatFormFieldModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
+    provideStorage(() =>getStorage()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     provideFunctions(() => getFunctions()),

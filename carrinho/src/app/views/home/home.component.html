@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       
       
-      <ng-container *ngIf="authService.currentUser$ | async as user; else loginButton">
+      <ng-container *ngIf="user$ | async as user; else loginButton">
         <button class="botao-login" mat-button  [matMenuTriggerFor]="userMenu">
           <mat-icon class="icon">account_circle</mat-icon>
             <h2 class="displayName">{{user.displayName}}</h2>
@@ -33,6 +33,7 @@
     </ng-template>
     <mat-menu #userMenu="matMenu">
       <button class="logout" mat-menu-item (click)="logOut()">Logout</button>
+      <button class="logout" mat-menu-item routerLink="/profile">Profile</button>
     </mat-menu>
 
       <ul class="navbar-nav">

@@ -39,8 +39,36 @@ main{
   
    
 }
+.logout{
+    font-size: 20px;
+    font-family: "Koulen", cursive;
+}
+
+.icon {
+    font-size: 35px;
+    display: flex;
+    position: absolute;
+    right: 130px;
+
+}
 
 
+.botao-login {
+    border: 0px solid;
+    width: 100px;
+    display: flex;
+    padding: 1px;
+    border-radius: 8px;
+    background-color: white;
+    position: absolute;
+    right: 0;
+  }
+  .botao-login p{
+      margin-top: 3px;
+      margin-left: 10px;
+      font-size: 20px;
+      font-family: "Koulen", cursive;
+  }
 
 .img {
     display: flex;

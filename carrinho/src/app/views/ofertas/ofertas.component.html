@@ -5,6 +5,23 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <ng-container *ngIf="user$ | async as user; else loginButton">
+        <button class="botao-login" mat-button  [matMenuTriggerFor]="userMenu">
+          <mat-icon class="icon">account_circle</mat-icon>
+            <h2 class="displayName">{{user.displayName}}</h2>
+            <mat-icon>expand_more</mat-icon>
+        </button>
+      </ng-container>
+      <ng-template #loginButton>
+      <button class="botao-login" mat-button routerLink="login">
+        <mat-icon>login</mat-icon>
+       <p>Login</p>
+      </button>
+    </ng-template>
+    <mat-menu #userMenu="matMenu">
+      <button class="logout" mat-menu-item (click)="logOut()">Logout</button>
+      <button class="logout" mat-menu-item routerLink="/profile">Profile</button>
+    </mat-menu>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
         <li class="nav-item">

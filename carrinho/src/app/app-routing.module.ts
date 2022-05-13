@@ -8,7 +8,8 @@ import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { OfertasComponent } from './views/ofertas/ofertas.component';
 import { OrdemCompraComponent } from './views/ordem-compra/ordem-compra.component';
-import { AuthenticationGuardService } from './services/authentication-guard.service';
+
+import { ProfileComponent } from './views/profile/profile.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: "admin", component: AdminComponent},
   {path: "compraefetuada", component: CompraefetuadaComponent},
   {path: "login", component: LoginComponent},
-  {path: "cadastro", component: CadastroComponent}
+  {path: "cadastro", component: CadastroComponent},
+  {path: "profile", component: ProfileComponent}
 ];
 
 @NgModule({

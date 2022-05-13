@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
-import { User } from 'src/app/models/user';
+
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
@@ -29,7 +29,7 @@ password: string
     })
   }
 
-userModel = new User("","","","")
+
 
 logar(){
   if (!this.loginForm.valid) {

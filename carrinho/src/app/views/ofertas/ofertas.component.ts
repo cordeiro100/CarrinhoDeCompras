@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { Ofertas } from 'src/app/models/ofertas';
@@ -7,6 +7,8 @@ import { CarrinhoService } from 'src/app/services/carrinho.service';
 import { OfertaService } from 'src/app/services/oferta.service';
 import { NgToastService } from 'ng-angular-popup';
 import { ToastrService } from 'ngx-toastr';
+import { UsersService } from 'src/app/services/users.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-ofertas',
@@ -18,14 +20,17 @@ export class OfertasComponent implements OnInit {
 
   public oferta: Ofertas;
   number: any;
-
+user$ = this.usersService.currentUserProfile$;
 itemTotal: number
 
   constructor(
     private route: ActivatedRoute,
     private ofertaService: OfertaService,
     private carrinhoService: CarrinhoService,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private usersService: UsersService,
+    private authService: AuthenticationService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -65,7 +70,10 @@ itemTotal: number
     console.log(this.carrinhoService.exibirItens());
   }
 
+  logOut(){
+    this.authService.logout().subscribe(() =>{
+      this.router.navigateByUrl("/")
+    })
 
-
-
+  }
 }

@@ -59,7 +59,7 @@ export class CarrinhoService {
       (item: Ofertas) => item.id === oferta.id
     );
 
-    if (itemCarrinhoEncontrado) {
+    if(itemCarrinhoEncontrado) {
       itemCarrinhoEncontrado.quantidade -= 1;
 
       if (itemCarrinhoEncontrado.quantidade === 0) {

@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { timeStamp } from 'console';
-import { Filter } from 'src/app/models/filter';
+
 
 import { Ofertas } from 'src/app/models/ofertas';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CarrinhoService } from 'src/app/services/carrinho.service';
 import { OfertaService } from 'src/app/services/oferta.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-home',
@@ -21,11 +22,11 @@ export class HomeComponent implements OnInit {
  public oferta:  Ofertas[]
 
  ofertas: any[]
- user$ = this.authService.currentUser$;
+
  itemTotal: number;
+user$ = this.usersService.currentUserProfile$;
 
-
-  constructor(private ofertaService: OfertaService, private carrinhoService: CarrinhoService, public authService: AuthenticationService, private router: Router) { }
+  constructor(private ofertaService: OfertaService, private carrinhoService: CarrinhoService, public authService: AuthenticationService, private router: Router, private usersService: UsersService) { }
 
   ngOnInit(): void {
 console.log("Oninit")
