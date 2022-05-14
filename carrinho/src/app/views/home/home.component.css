@@ -16,8 +16,6 @@ mat-icon {
   color: black;
 }
 
-
-
 .botao-login {
   border: 0px solid;
   width: 100px;
@@ -28,11 +26,11 @@ mat-icon {
   position: absolute;
   right: 0;
 }
-.botao-login p{
-    margin-top: 3px;
-    margin-left: 10px;
-    font-size: 20px;
-    font-family: "Koulen", cursive;
+.botao-login p {
+  margin-top: 3px;
+  margin-left: 10px;
+  font-size: 20px;
+  font-family: "Koulen", cursive;
 }
 
 ul {
@@ -84,21 +82,17 @@ bi-cart4 {
   font-family: "Koulen", cursive;
 }
 
-.logout{
-    font-size: 20px;
-    font-family: "Koulen", cursive;
+.logout {
+  font-size: 20px;
+  font-family: "Koulen", cursive;
 }
 
 .icon {
-    font-size: 35px;
-    display: flex;
-    position: absolute;
-    right: 130px;
-
+  font-size: 35px;
+  display: flex;
+  position: absolute;
+  right: 130px;
 }
-
-
-
 
 .navbar-toggler {
   background-color: white;
@@ -108,11 +102,10 @@ bi-cart4 {
   height: 300px;
 }
 
-.bem-vindo{
-    text-align: center;
-    font-family: "Koulen", cursive;
-    margin-top: 15px;
-  
+.bem-vindo {
+  text-align: center;
+  font-family: "Koulen", cursive;
+  margin-top: 15px;
 }
 
 .background {
@@ -169,4 +162,70 @@ bi-cart4 {
 }
 .card3:hover {
   transform: scale(1.1);
+}
+
+@media screen and (max-width: 1024px) {
+  .card {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .navbar-brand img{
+    width: 90px;
+  }
+  .navbar{
+    padding: 60px;
+  }
+
+  .navbar-toggler{
+    width: 60px;
+  }
+
+  .bi-cart4{
+    font-size: 25px;
+  }
+
+}
+
+@media screen and (max-width: 770px) {
+  .card {
+    height: 280px;
+  }
+
+  .card p {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 500px) {
+    .card {
+      height: 220px;
+    }
+    .card p {
+      font-size: 15px;
+    }
+    .card button {
+      padding: 2px;
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    .card button {
+      padding: 1px;
+    }
+    .navbar-brand img{
+      width: 40px;
+    }
+    .navbar{
+      padding: 60px;
+    }
+
+    .navbar-toggler{
+      width: 60px;
+    }
+
+    .bi-cart4{
+      font-size: 25px;
+    }
+  }
 }
