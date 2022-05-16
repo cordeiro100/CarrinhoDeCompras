@@ -13,10 +13,9 @@
         </button>
       </ng-container>
       <ng-template #loginButton>
-      <button class="botao-login" mat-button routerLink="login">
-        <mat-icon>login</mat-icon>
-       <p>Login</p>
-      </button>
+
+  
+
     </ng-template>
     <mat-menu #userMenu="matMenu">
       <button class="logout" mat-menu-item (click)="logOut()">Logout</button>
@@ -32,16 +31,13 @@
     </div>
   </nav>
   
-<div class="principal">
 
 
 
+<div class="container">
+  <div class="row justify-content-center">
 
-
-  
-  <aside *ngIf="oferta">
-  <div class="produto ">
- 
+<div class="principal oferta"  *ngIf="oferta">
 
 <h1>{{oferta.titulo}}</h1>
 <img [src]="oferta.imagens">
@@ -50,16 +46,9 @@
 <p class="descricao">{{oferta.descricao}}</p>
 </div>
 
-</aside>
 
 
-
-
-
-
-
-<main>
-  <div *ngIf="oferta"  class="servicos">
+<div  class="servicos">
     <h3>Serviços</h3>
     <p>Garantia Estendida: R$0,00 </p>
     <hr>
@@ -76,10 +65,5 @@
 <ng-template #semItens>
 
 </ng-template>
-
-
-</main>
-
-
-
+</div>
 </div>
