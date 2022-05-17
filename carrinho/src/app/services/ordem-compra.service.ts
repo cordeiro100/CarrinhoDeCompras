@@ -5,21 +5,16 @@ import { Ofertas } from '../models/ofertas';
 import { Pedido } from '../models/pedido';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrdemCompraService {
+  constructor(private fireStore: Firestore) {}
 
+  addPedido(pedidos: Pedido) {
+    const numeroPedido = collection(this.fireStore, 'pedidos');
 
+    console.log(pedidos);
 
-  constructor(private fireStore: Firestore) { }
-  
-  addPedido(pedidos: Pedido){
-    const numeroPedido = collection(this.fireStore, 'pedidos'
-    )
-
-    console.log(pedidos)
-
-    return addDoc(numeroPedido, {...pedidos})
+    return addDoc(numeroPedido, { ...pedidos });
   }
-  
 }

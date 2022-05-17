@@ -36,7 +36,6 @@ export class CadastroComponent implements OnInit {
     });
   }
 
-
   cadastrar() {
     if (!this.cadastroForm.valid) return;
     const { name, email, password } = this.cadastroForm.value;

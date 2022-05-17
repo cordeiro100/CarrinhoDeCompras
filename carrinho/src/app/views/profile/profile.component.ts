@@ -8,7 +8,7 @@ import { concatMap, switchMap } from 'rxjs';
 
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UsersService } from 'src/app/services/users.service';
-import {ImageuploadService} from 'src/app/services/imageupload.service';
+import { ImageuploadService } from 'src/app/services/imageupload.service';
 import { ProfileUser } from 'src/app/models/user-profile';
 
 @UntilDestroy()
@@ -35,7 +35,6 @@ export class ProfileComponent implements OnInit {
     private toast: HotToastService,
     private usersService: UsersService,
     private imageService: ImageuploadService
-    
   ) {}
 
   ngOnInit(): void {
@@ -69,11 +68,6 @@ export class ProfileComponent implements OnInit {
       )
       .subscribe();
   }
-
-
-
-
-
 
   saveProfile() {
     const profileData = this.profileForm.value;

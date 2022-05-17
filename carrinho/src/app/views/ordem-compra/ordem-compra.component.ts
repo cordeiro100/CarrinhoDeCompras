@@ -43,10 +43,6 @@ export class OrdemCompraComponent implements OnInit {
   comprar() {
     if (this.carrinhoService.exibirItens().length === 0) {
       this.alert();
-      
-      
-
-
     } else {
       const pedido = new Pedido(
         this.compraForm.value.endereco,
@@ -89,6 +85,11 @@ export class OrdemCompraComponent implements OnInit {
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire('Cancelled', 'Your imaginary file is safe :)', 'error');
       }
+    });
+  }
+  logOut() {
+    this.authService.logout().subscribe(() => {
+      this.router.navigateByUrl('/');
     });
   }
 }

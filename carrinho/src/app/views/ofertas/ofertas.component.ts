@@ -20,8 +20,8 @@ export class OfertasComponent implements OnInit {
 
   public oferta: Ofertas;
   number: any;
-user$ = this.usersService.currentUserProfile$;
-itemTotal: number
+  user$ = this.usersService.currentUserProfile$;
+  itemTotal: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,27 +34,14 @@ itemTotal: number
   ) {}
 
   ngOnInit() {
+    this.carrinhoService.getTotalItens().subscribe((res) => {
+      this.itemTotal = res;
+    });
 
-    console.log("Oninit")
-    this.carrinhoService.getTotalItens().subscribe(res =>{
-      console.log("Estou aqui", res)
-      this.itemTotal = res
-    })
-
-
-
-
-
-
-    console.log(this.carrinhoService.exibirItens());
-
-    console.log(this.route.snapshot.params);
     this.id = this.route.snapshot.params['id'];
 
     this.getOferta();
   }
-
-
 
   getOferta(): void {
     this.ofertaService.getOfertasById(this.id).subscribe((res) => {
@@ -62,18 +49,13 @@ itemTotal: number
     });
   }
   adicionarItemCarrinho() {
-   this.toast.success("Item adionado no seu carrinho");
-   this.carrinhoService.incluirItem(this.oferta);
-  
-  
-  
-    console.log(this.carrinhoService.exibirItens());
+    this.toast.success('Item adionado no seu carrinho');
+    this.carrinhoService.incluirItem(this.oferta);
   }
 
-  logOut(){
-    this.authService.logout().subscribe(() =>{
-      this.router.navigateByUrl("/")
-    })
-
+  logOut() {
+    this.authService.logout().subscribe(() => {
+      this.router.navigateByUrl('/');
+    });
   }
 }

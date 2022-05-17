@@ -1,106 +1,144 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #000C37;">
-  <div class="container-fluid">
-    <a class="navbar-brand" routerLink=""><img src="assets/fashion.png"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-      <li class="nav-item">
-     
-      </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-
-
-
 <div class="container">
   <div class="ordem-compra">
     <form #pedidoForm="ngForm" [formGroup]="compraForm" (ngSubmit)="comprar()">
-    
       <h5>Sua Compra</h5>
       <hr />
 
-
       <div *ngIf="carrinhoService.exibirItens().length; else carrinhoVazio">
-      <div *ngFor="let ofertas of oferta" class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
-       
-        <div class="form-group col-sm-2">
-          <img [src]="ofertas.imagens" class="img-fluid">
-        </div>
-        <div class="form-group col-sm-6">
-         <h2>{{ofertas.titulo}}</h2>
-          <br />
-         <p> {{ofertas.descricao}}</p>
-        </div>
+        <div
+          *ngFor="let ofertas of oferta"
+          class="form-row"
+          style="
+            background: #fafafa;
+            padding: 20px;
+            border-bottom: solid 1px #f0f0f0;
+          "
+        >
+          <div class="form-group col-sm-2">
+            <img [src]="ofertas.imagens" class="img-fluid" />
+          </div>
+          <div class="form-group col-sm-6">
+            <h2>{{ ofertas.titulo }}</h2>
+            <br />
+            <p>{{ ofertas.descricao }}</p>
+          </div>
 
-        <div>
-          <div class="row">
-            <div class="col">
-              <button class="buttonSubtrair" (click)="subtrair(ofertas)" type="button" class="btn btn-link">-</button>
-              {{ofertas.quantidade}}
-              <button class="buttonSomar" (click)="adicionar(ofertas)" type="button" class="btn btn-link">+</button>
+          <div>
+            <div class="row">
+              <div class="col">
+                <button
+                  class="buttonSubtrair"
+                  (click)="subtrair(ofertas)"
+                  type="button"
+                  class="btn btn-link"
+                >
+                  -
+                </button>
+                {{ ofertas.quantidade }}
+                <button
+                  class="buttonSomar"
+                  (click)="adicionar(ofertas)"
+                  type="button"
+                  class="btn btn-link"
+                >
+                  +
+                </button>
+              </div>
             </div>
+          </div>
+
+          <div class="form-group col-sm-3 d-flex justify-content-end">
+            {{ ofertas.quantidade * ofertas.valor | currency: "BRL":true }}
           </div>
         </div>
 
-        <div class="form-group col-sm-3 d-flex justify-content-end">
-          {{ofertas.quantidade * ofertas.valor | currency: 'BRL': true}}
+        <div class="form-row">
+          <div class="form-group col d-flex justify-content-end">
+            <h4>
+              Total do pedido:{{
+                carrinhoService.valorTotal() | currency: "BRL":true
+              }}
+            </h4>
+            <button routerLink="" class="button2" type="button">
+              continuar comprando
+            </button>
+          </div>
         </div>
+        <br />
       </div>
-      
-      <div class="form-row">
-        <div class="form-group col d-flex justify-content-end">
-          <h4>Total do pedido:{{carrinhoService.valorTotal() | currency: 'BRL': true}}</h4>
-          <button routerLink="" class="button2" type="button">continuar comprando</button>
+
+      <ng-template #carrinhoVazio>
+        <div
+          class="form-row d-flex justify-content-center"
+          style="
+            background: #fafafa;
+            padding: 20px;
+            border-bottom: solid 1px #f0f0f0;
+          "
+        >
+          Seu carrinho está vazio. Aproveite as ofertas!!
         </div>
-      </div>
-      <br />
-    </div>
-
-    <ng-template #carrinhoVazio>
-      <div class="form-row d-flex justify-content-center" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
-        Seu carrinho está vazio. Aproveite as ofertas!!
-      </div>
-    </ng-template>
-
+      </ng-template>
 
       <h5>Dados de entrega</h5>
       <hr />
 
       <div class="form-row">
-        
-        
         <div class="form-group col-md-6">
           <label for="endereco">Digite seu endereço:</label>
-          <input class="endereco" type="text" id="endereco" name="endereco" formControlName="endereco" placeholder="Ex: Rua Orlando Correa" [(ngModel)]="endereco">
+          <input
+            class="endereco"
+            type="text"
+            id="endereco"
+            name="endereco"
+            formControlName="endereco"
+            placeholder="Ex: Rua Orlando Correa"
+            [(ngModel)]="endereco"
+          />
           <div class="invalid-feedback">Endereço inválido</div>
-          <small *ngIf="compraForm.get('endereco')?.errors?.['required']" class="text-danger d-block mt-2">
+          <small
+            *ngIf="compraForm.get('endereco')?.errors?.['required']"
+            class="text-danger d-block mt-2"
+          >
             Um endereço é necessário
           </small>
         </div>
 
         <label for="numero">Digite o número da casa:</label>
         <div class="form-group col-md-2">
-          <input type="text" id="numero" name="numero" formControlName="numero" placeholder=" Ex: 225" [(ngModel)]="numero">
+          <input
+            type="text"
+            id="numero"
+            name="numero"
+            formControlName="numero"
+            placeholder=" Ex: 225"
+            [(ngModel)]="numero"
+          />
           <br />
-          <small *ngIf="compraForm.get('numero')?.errors?.['required']" class="text-danger d-block mt-2">
+          <small
+            *ngIf="compraForm.get('numero')?.errors?.['required']"
+            class="text-danger d-block mt-2"
+          >
             O número da casa é necessário
           </small>
-        
         </div>
         <label for="complemento">Digite o complemento:</label>
         <div class="form-group col-md-4">
-          <input type="text" id="complemento" name="complemento" formControlName="complemento" placeholder="Ex: Casa" [(ngModel)]="complemento">
-          <small *ngIf="compraForm.get('complemento')?.errors?.['required']" class="text-danger d-block mt-2">
+          <input
+            type="text"
+            id="complemento"
+            name="complemento"
+            formControlName="complemento"
+            placeholder="Ex: Casa"
+            [(ngModel)]="complemento"
+          />
+          <small
+            *ngIf="compraForm.get('complemento')?.errors?.['required']"
+            class="text-danger d-block mt-2"
+          >
             Digite um complemento
           </small>
         </div>
-
       </div>
       <br />
 
@@ -108,14 +146,21 @@
       <hr />
 
       <div class="form-row">
-          
         <div class="form-group col-md-3">
-          <select  name="formaPagamento" id="formaPagamento" formControlName="formaPagamento"  [(ngModel)]="formaPagamento">
+          <select
+            name="formaPagamento"
+            id="formaPagamento"
+            formControlName="formaPagamento"
+            [(ngModel)]="formaPagamento"
+          >
             <option>Selecione uma opção</option>
             <option>Dinheiro</option>
             <option>Débito</option>
           </select>
-          <small *ngIf="compraForm.get('formaPagamento')?.errors?.['required']" class="text-danger d-block mt-2">
+          <small
+            *ngIf="compraForm.get('formaPagamento')?.errors?.['required']"
+            class="text-danger d-block mt-2"
+          >
             Escolha a forma de pagamento
           </small>
 
@@ -124,7 +169,13 @@
       </div>
 
       <hr />
-      <button type="submit" class="btn btn-primary btn-lg"  [disabled]="!compraForm.valid">Cofirmar compra</button>
+      <button
+        type="submit"
+        class="btn btn-primary btn-lg"
+        [disabled]="!compraForm.valid"
+      >
+        Cofirmar compra
+      </button>
     </form>
   </div>
 </div>

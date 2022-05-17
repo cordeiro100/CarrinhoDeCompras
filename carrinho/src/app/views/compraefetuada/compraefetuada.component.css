@@ -1,69 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Rye&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Koulen&family=Rye&display=swap");
 
-
-
-.navbar{
-    padding: 30px;
+.navbar {
+  padding: 30px;
 }
 
-.navbar-brand img{
-    width: 120px;
-    box-shadow: 0px 0px 30px rgb(0, 251, 255), 0px 0px 10px silver;
-    border-radius: 50%;
+.navbar-brand img {
+  width: 120px;
+  box-shadow: 0px 0px 30px rgb(0, 251, 255), 0px 0px 10px silver;
+  border-radius: 50%;
 }
-bi-cart4{
-    font-size: 30px;
-    color: wheat;
-}
-
-.navbar a{
-    color: white;
-    font-family: 'Rye', cursive;
+bi-cart4 {
+  font-size: 30px;
+  color: wheat;
 }
 
-.navbar-toggler{
-    background-color: white;
+.navbar a {
+  color: white;
+  font-family: "Rye", cursive;
 }
 
-.principal{
-   
-    background-image: url("src/assets/background.png");
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-size: auto;
- 
- 
-   
+.navbar-toggler {
+  background-color: white;
 }
 
-.container{
-    background-color: rgb(165, 165, 165);
-    height: 500px;
-    opacity: 0.8;
-
+.principal {
+  background-image: url("src/assets/background.png");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: auto;
 }
 
-h1{
-    font-size: 90px;
-    color: white;
-    text-align: center;
-    margin-top: 250px;
-    font-family: 'Rye', cursive;
-
-}
-.carousel-item img{
-    height: 300px;
+.container {
+  background-color: rgb(165, 165, 165);
+  height: 500px;
+  opacity: 0.8;
 }
 
-a{
-    text-align: center;
-    margin-top: 50px;
-    font-size: 40px;
-    font-family: 'Rye', cursive;
-    text-decoration: none;
+h1 {
+  font-size: 90px;
+  color: white;
+  text-align: center;
+  margin-top: 250px;
+  font-family: "Rye", cursive;
+}
+.carousel-item img {
+  height: 300px;
 }
 
-a:hover{
-    text-decoration: underline;
+a {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 40px;
+  font-family: "Rye", cursive;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }

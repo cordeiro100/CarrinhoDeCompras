@@ -12,19 +12,19 @@ import { OrdemCompraComponent } from './views/ordem-compra/ordem-compra.componen
 import { ProfileComponent } from './views/profile/profile.component';
 
 const routes: Routes = [
-  {path: "", component: HomeComponent},
-  {path: "ordem-compra", component: OrdemCompraComponent},
-  {path: "ofertas", component: OfertasComponent},
-  {path: "ofertas/:id", component: OfertasComponent},
-  {path: "admin", component: AdminComponent},
-  {path: "compraefetuada", component: CompraefetuadaComponent},
-  {path: "login", component: LoginComponent},
-  {path: "cadastro", component: CadastroComponent},
-  {path: "profile", component: ProfileComponent}
+  { path: '', component: HomeComponent },
+  { path: 'ordem-compra', component: OrdemCompraComponent },
+  { path: 'ofertas', component: OfertasComponent },
+  { path: 'ofertas/:id', component: OfertasComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'compraefetuada', component: CompraefetuadaComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'cadastro', component: CadastroComponent },
+  { path: 'profile', component: ProfileComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

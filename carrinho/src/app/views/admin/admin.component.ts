@@ -8,20 +8,22 @@ import { UsersService } from 'src/app/services/users.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
-
-public pedidos: Pedido[]
-public oferta: Ofertas[]
-pedido: any[]
-user$ = this.usersService.currentUserProfile$;
-  constructor(private adminService: AdminService, private usersService: UsersService, private authService: AuthenticationService) { }
+  public pedidos: Pedido[];
+  public oferta: Ofertas[];
+  pedido: any[];
+  user$ = this.usersService.currentUserProfile$;
+  constructor(
+    private adminService: AdminService,
+    private usersService: UsersService,
+    private authService: AuthenticationService
+  ) {}
 
   ngOnInit(): void {
-    this.adminService.getCompra().subscribe((pedido: Pedido[])=>{
-      this.pedidos = pedido
-    })
+    this.adminService.getCompra().subscribe((pedido: Pedido[]) => {
+      this.pedidos = pedido;
+    });
   }
-
 }

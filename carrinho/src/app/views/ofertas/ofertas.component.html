@@ -1,69 +1,82 @@
-
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffffff;">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink=""><img src="assets/fashion.png"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<nav
+  class="navbar navbar-expand-lg navbar-light"
+  style="background-color: #ffffff"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink=""><img src="assets/fashion.png" /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <ng-container *ngIf="user$ | async as user; else loginButton">
+      <button class="botao-login" mat-button [matMenuTriggerFor]="userMenu">
+        <mat-icon class="icon">account_circle</mat-icon>
+        <h2 class="displayName">{{ user.displayName }}</h2>
+        <mat-icon>expand_more</mat-icon>
       </button>
-      <ng-container *ngIf="user$ | async as user; else loginButton">
-        <button class="botao-login" mat-button  [matMenuTriggerFor]="userMenu">
-          <mat-icon class="icon">account_circle</mat-icon>
-            <h2 class="displayName">{{user.displayName}}</h2>
-            <mat-icon>expand_more</mat-icon>
-        </button>
-      </ng-container>
-      <ng-template #loginButton>
-
-  
-
-    </ng-template>
+    </ng-container>
+    <ng-template #loginButton> </ng-template>
     <mat-menu #userMenu="matMenu">
       <button class="logout" mat-menu-item (click)="logOut()">Logout</button>
-      <button class="logout" mat-menu-item routerLink="/profile">Profile</button>
+      <button class="logout" mat-menu-item routerLink="/profile">
+        Profile
+      </button>
     </mat-menu>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
         <li class="nav-item">
-        <a routerLink="/ordem-compra"><i class="bi bi-cart pop-up" matBadge="{{itemTotal}}" matBadgeOverlap="false"></i>{{itemTotal}}</a>
+          <a routerLink="/ordem-compra"
+            ><i
+              class="bi bi-cart pop-up"
+              matBadge="{{ itemTotal }}"
+              matBadgeOverlap="false"
+            ></i
+            >{{ itemTotal }}</a
+          >
         </li>
-        </ul>
-      </div>
+      </ul>
     </div>
-  </nav>
-  
-
-
+  </div>
+</nav>
 
 <div class="container">
   <div class="row justify-content-center">
+    <div class="principal oferta" *ngIf="oferta">
+      <h1>{{ oferta.titulo }}</h1>
+      <img [src]="oferta.imagens" />
 
-<div class="principal oferta"  *ngIf="oferta">
+      <p class="descricao">{{ oferta.descricao }}</p>
 
-<h1>{{oferta.titulo}}</h1>
-<img [src]="oferta.imagens">
+      <div class="servicos">
+        <h3>Serviços</h3>
+        <p>Garantia Estendida: R$0,00</p>
+        <hr />
+        <p>Roubo e Furto: R$0,00</p>
+        <hr />
+        <div class="valor">
+          <p>Valor total dos serviços</p>
+          <h2>{{ oferta.valor | currency: "BRL":true }}</h2>
+        </div>
 
-
-<p class="descricao">{{oferta.descricao}}</p>
-</div>
-
-
-
-<div  class="servicos">
-    <h3>Serviços</h3>
-    <p>Garantia Estendida: R$0,00 </p>
-    <hr>
-    <p>Roubo e Furto: R$0,00</p>
-    <hr>
-    <div class="valor">
-    <p>Valor total dos serviços</p>
-    <h2>{{oferta.valor | currency: 'BRL':true}}</h2>
+        <button
+          (click)="adicionarItemCarrinho()"
+          class="comprando"
+          type="button"
+        >
+          adicionar ao carrinho
+        </button>
+        <button class="button2" routerLink="" type="button">
+          continuar comprando
+        </button>
+      </div>
+    </div>
+    <ng-template #semItens> </ng-template>
   </div>
-
-  <button (click)="adicionarItemCarrinho()"  class="comprando" type="button">adicionar ao carrinho</button>
-  <button class="button2" routerLink="" type="button">continuar comprando</button>
-  </div>
-<ng-template #semItens>
-
-</ng-template>
-</div>
 </div>

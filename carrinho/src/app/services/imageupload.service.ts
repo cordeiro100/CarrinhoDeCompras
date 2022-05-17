@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
 
-import {getDownloadURL, uploadBytes, Storage, ref } from '@angular/fire/storage';
+import {
+  getDownloadURL,
+  uploadBytes,
+  Storage,
+  ref,
+} from '@angular/fire/storage';
 
-import { from,  Observable,  switchMap } from 'rxjs';
+import { from, Observable, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

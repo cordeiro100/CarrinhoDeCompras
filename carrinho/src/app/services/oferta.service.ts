@@ -8,31 +8,17 @@ import { Ofertas } from '../models/ofertas';
   providedIn: 'root',
 })
 export class OfertaService {
-
-
-
-
-
-
-
-
-
-
-
   constructor(private firestore: Firestore) {}
 
-getOfertas():Observable<Ofertas[]>{
-  const todasOfertas = collection(this.firestore, "ofertas");
-  return collectionData(todasOfertas, {idField: 'id'}) as Observable<Ofertas[]>
-}
+  getOfertas(): Observable<Ofertas[]> {
+    const todasOfertas = collection(this.firestore, 'ofertas');
+    return collectionData(todasOfertas, { idField: 'id' }) as Observable<
+      Ofertas[]
+    >;
+  }
 
-
-
-getOfertasById(id: string){
-  console.log("GetOfertasbyid", id)
-  const oferta = doc(this.firestore, `ofertas/${id}`);
-  return docData(oferta, {idField: 'id'}) as Observable<Ofertas>
-  
-}
-
+  getOfertasById(id: string) {
+    const oferta = doc(this.firestore, `ofertas/${id}`);
+    return docData(oferta, { idField: 'id' }) as Observable<Ofertas>;
+  }
 }

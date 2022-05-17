@@ -171,21 +171,20 @@ bi-cart4 {
 }
 
 @media screen and (max-width: 990px) {
-  .navbar-brand img{
+  .navbar-brand img {
     width: 90px;
   }
-  .navbar{
+  .navbar {
     padding: 60px;
   }
 
-  .navbar-toggler{
+  .navbar-toggler {
     width: 60px;
   }
 
-  .bi-cart4{
+  .bi-cart4 {
     font-size: 25px;
   }
-
 }
 
 @media screen and (max-width: 770px) {
@@ -213,18 +212,18 @@ bi-cart4 {
     .card button {
       padding: 1px;
     }
-    .navbar-brand img{
+    .navbar-brand img {
       width: 40px;
     }
-    .navbar{
+    .navbar {
       padding: 60px;
     }
 
-    .navbar-toggler{
+    .navbar-toggler {
       width: 60px;
     }
 
-    .bi-cart4{
+    .bi-cart4 {
       font-size: 25px;
     }
   }

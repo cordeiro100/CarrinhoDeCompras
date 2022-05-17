@@ -1,40 +1,85 @@
 <div class="principal">
-    <div class="container">
-        <div class="row justify-content-center">
-            <form #userForm="ngForm" [formGroup]="cadastroForm" (ngSubmit)="cadastrar()">
-                <label for="name">Digite seu nome:</label>
-                <input type="text" id="name" name="name" placeholder="Ex: João" formControlName="name" [(ngModel)]="name">
-                <small *ngIf="cadastroForm.get('name')?.errors?.['required']" class="text-danger d-block mt-2">
-                    Um nome é necessário
-                  </small>
-               
-                  <label for="sobrenome">Digite seu sobrenome:</label>
-                <input type="text" id="sobrenome" name="sobrenome" placeholder="Ex: Castanho" formControlName="sobrenome" [(ngModel)]="sobrenome">
-                <small *ngIf="cadastroForm.get('sobrenome')?.errors?.['required']" class="text-danger d-block mt-2">
-                    Um sobrenome é necessário
-                  </small>
-               
-                  <label for="sobrenome">Digite um email válido:</label>
-                <input type="email" id="email" name="eamil" placeholder="email@email.com" formControlName="email" [(ngModel)]="email">
-                <small *ngIf="cadastroForm.get('sobrenome')?.errors?.['required']" class="text-danger d-block mt-2">
-                    Um email é necessário
-                  </small>
+  <div class="container">
+    <div class="row justify-content-center">
+      <form
+        #userForm="ngForm"
+        [formGroup]="cadastroForm"
+        (ngSubmit)="cadastrar()"
+      >
+        <label for="name">Digite seu nome:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Ex: João"
+          formControlName="name"
+          [(ngModel)]="name"
+        />
+        <small
+          *ngIf="cadastroForm.get('name')?.errors?.['required']"
+          class="text-danger d-block mt-2"
+        >
+          Um nome é necessário
+        </small>
 
-                <label for="password">Digite sua senha:</label>
-                <input type="password" id="password" name="password" placeholder="Digite sua senha" formControlName="password" [(ngModel)]="password">
-                <small *ngIf="cadastroForm.get('password')?.errors?.['required']" class="text-danger d-block mt-2">
-                    Uma senha é necessária
-                  </small>
-                
-                <button type="submit" [disabled]="!cadastroForm.valid">Cadastrar</button>
-                <img src="assets/fashion.png">
+        <label for="sobrenome">Digite seu sobrenome:</label>
+        <input
+          type="text"
+          id="sobrenome"
+          name="sobrenome"
+          placeholder="Ex: Castanho"
+          formControlName="sobrenome"
+          [(ngModel)]="sobrenome"
+        />
+        <small
+          *ngIf="cadastroForm.get('sobrenome')?.errors?.['required']"
+          class="text-danger d-block mt-2"
+        >
+          Um sobrenome é necessário
+        </small>
 
-                <div class="link-cadastro">
-                    <p>Novo por aqui?</p>
-                    <a routerLink="/login">Crie a sua conta</a>
-                  </div>
-            </form>
+        <label for="sobrenome">Digite um email válido:</label>
+        <input
+          type="email"
+          id="email"
+          name="eamil"
+          placeholder="email@email.com"
+          formControlName="email"
+          [(ngModel)]="email"
+        />
+        <small
+          *ngIf="cadastroForm.get('sobrenome')?.errors?.['required']"
+          class="text-danger d-block mt-2"
+        >
+          Um email é necessário
+        </small>
+
+        <label for="password">Digite sua senha:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Digite sua senha"
+          formControlName="password"
+          [(ngModel)]="password"
+        />
+        <small
+          *ngIf="cadastroForm.get('password')?.errors?.['required']"
+          class="text-danger d-block mt-2"
+        >
+          Uma senha é necessária
+        </small>
+
+        <button type="submit" [disabled]="!cadastroForm.valid">
+          Cadastrar
+        </button>
+        <img src="assets/fashion.png" />
+
+        <div class="link-cadastro">
+          <p>Novo por aqui?</p>
+          <a routerLink="/login">Crie a sua conta</a>
         </div>
+      </form>
     </div>
+  </div>
 </div>
-

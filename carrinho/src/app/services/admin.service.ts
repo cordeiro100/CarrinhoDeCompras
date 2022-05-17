@@ -5,21 +5,17 @@ import { collection } from '@firebase/firestore';
 import { Observable } from 'rxjs';
 import { Ofertas } from '../models/ofertas';
 import { Pedido } from '../models/pedido';
-Pedido
+Pedido;
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AdminService {
+  constructor(private firestore: Firestore) {}
 
-  constructor(private firestore: Firestore) { }
-
-getCompra():Observable<Pedido[]>{
-  const itemPedido = collection(this.firestore, "pedidos")
-  return collectionData(itemPedido, {idField: 'id'}) as Observable<Pedido[]>
+  getCompra(): Observable<Pedido[]> {
+    const itemPedido = collection(this.firestore, 'pedidos');
+    return collectionData(itemPedido, { idField: 'id' }) as Observable<
+      Pedido[]
+    >;
+  }
 }
-  
- 
-
-}
-
-

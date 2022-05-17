@@ -114,65 +114,58 @@ ul {
   background-color: rgb(255, 61, 61);
 }
 
-
-
 /* RESPONSIVIDADE */
 
-
 @media screen and (max-width: 990px) {
-    .oferta img{
-        width: 700px;
-    }
+  .oferta img {
+    width: 500px;
+  }
+  .navbar-brand img {
+    width: 60px;
+  }
 }
 
 @media screen and (max-width: 790px) {
-    .oferta img{
-        width: 500px;
-    }
+  .oferta img {
+    width: 500px;
+  }
+
+  ul {
+    margin-top: -50px;
+  }
 }
 
 @media screen and (max-width: 500px) {
-    .oferta img{
-        width: 400px;
-    }
-    .navbar-brand img {
-        width: 60px;
-        box-shadow: 0px 0px 30px rgb(0, 251, 255), 0px 0px 10px silver;
-        border-radius: 50%;
-      }
+  .oferta p {
+    font-size: 8px;
+    margin: 0;
+    flex-wrap: nowrap;
+  }
+
+  ul {
+    margin-top: -50px;
+  }
+
+  .oferta img {
+    width: 370px;
+  }
+  .navbar-brand img {
+    width: 60px;
+  }
 }
 
 @media screen and (max-width: 380px) {
-    .oferta img{
-        width: 340px;
-    }
-    .navbar-brand img {
-        width: 60px;
-        box-shadow: 0px 0px 30px rgb(0, 251, 255), 0px 0px 10px silver;
-        border-radius: 50%;
-      }
-      .comprando {
-        margin-top: 40px;
-        width: 200px;
-        padding: 20px;
-        border-radius: 8px;
-        font-weight: bold;
-        text-transform: uppercase;
-        border: 2px solid;
-        border-color: #005478;
-        color: #005b82;
-      }
-      
-      .button2 {
-        margin-top: 40px;
-        width: 200px;
-        padding: 20px;
-        border-radius: 8px;
-        font-weight: bold;
-        text-transform: uppercase;
-        border: 0px solid;
-        border-color: rgb(0, 117, 119);
-        color: rgb(255, 255, 255);
-        background-color: rgb(241, 116, 0);
-      }
+  .oferta img {
+    width: 340px;
+  }
+  .navbar-brand img {
+    width: 60px;
+  }
+  .comprando {
+    width: 200px;
+  }
+
+  .button2 {
+    width: 200px;
+  }
 }

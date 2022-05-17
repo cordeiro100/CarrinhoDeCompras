@@ -19,8 +19,6 @@ export class CarrinhoService {
   }
 
   public incluirItem(oferta: Ofertas): void {
-    console.log('Oferta recebida no serviço', oferta);
-
     let itemCarrinhoEncontrado = this.itens.find(
       (item: Ofertas) => item.id === oferta.id
     );
@@ -30,7 +28,7 @@ export class CarrinhoService {
     } else {
       this.itens.push(oferta);
     }
-    console.log("carrinho service")
+
     this.totalItensObservable.next(this.totalItensObservable.getValue() + 1);
   }
 
@@ -59,7 +57,7 @@ export class CarrinhoService {
       (item: Ofertas) => item.id === oferta.id
     );
 
-    if(itemCarrinhoEncontrado) {
+    if (itemCarrinhoEncontrado) {
       itemCarrinhoEncontrado.quantidade -= 1;
 
       if (itemCarrinhoEncontrado.quantidade === 0) {
@@ -71,7 +69,7 @@ export class CarrinhoService {
 
   limparCarrinho(): void {
     this.itens = [];
-    this.totalItensObservable.next(0)
+    this.totalItensObservable.next(0);
   }
 
   getTotalItens() {

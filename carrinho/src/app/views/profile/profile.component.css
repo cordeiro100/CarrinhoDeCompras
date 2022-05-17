@@ -160,6 +160,6 @@ form input {
   font-weight: bold;
 }
 
-.botao-save:hover{
-filter: brightness(0.8);
+.botao-save:hover {
+  filter: brightness(0.8);
 }

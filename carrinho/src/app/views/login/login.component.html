@@ -1,27 +1,47 @@
 <div class="principal">
-    <div class="container">
-        <div class="row justify-content-center">
-            <form #userForm="ngForm" [formGroup]="loginForm" (ngSubmit)="logar()">
-                <label for="email">Digite seu email:</label>
-                <input type="email" id="email" name="email" placeholder="Ex: email@email.com" formControlName="email" [(ngModel)]="email">
-                <small *ngIf="loginForm.get('email')?.errors?.['required']" class="text-danger d-block mt-2">
-                    Um email é necessário
-                  </small>
+  <div class="container">
+    <div class="row justify-content-center">
+      <form #userForm="ngForm" [formGroup]="loginForm" (ngSubmit)="logar()">
+        <label for="email">Digite seu email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Ex: email@email.com"
+          formControlName="email"
+          [(ngModel)]="email"
+        />
+        <small
+          *ngIf="loginForm.get('email')?.errors?.['required']"
+          class="text-danger d-block mt-2"
+        >
+          Um email é necessário
+        </small>
 
-                <label for="password">Digite sua senha:</label>
-                <input type="password" id="password" name="password" placeholder="Digite sua senha" formControlName="password" [(ngModel)]="password">
-                <small *ngIf="loginForm.get('password')?.errors?.['required']" class="text-danger d-block mt-2">
-                    Uma senha é necessária
-                  </small>
-                
-                <button type="submit" [disabled]="!loginForm.valid">Logar</button>
-                <img src="assets/fashion.png">
+        <label for="password">Digite sua senha:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Digite sua senha"
+          formControlName="password"
+          [(ngModel)]="password"
+        />
+        <small
+          *ngIf="loginForm.get('password')?.errors?.['required']"
+          class="text-danger d-block mt-2"
+        >
+          Uma senha é necessária
+        </small>
 
-                <div class="link-cadastro">
-                    <p>Novo por aqui?</p>
-                    <a routerLink="/cadastro">Crie a sua conta</a>
-                  </div>
-            </form>
+        <button type="submit" [disabled]="!loginForm.valid">Logar</button>
+        <img src="assets/fashion.png" />
+
+        <div class="link-cadastro">
+          <p>Novo por aqui?</p>
+          <a routerLink="/cadastro">Crie a sua conta</a>
         </div>
+      </form>
     </div>
+  </div>
 </div>

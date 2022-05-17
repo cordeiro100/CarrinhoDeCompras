@@ -1,44 +1,46 @@
-
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #000C37;">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink=""><img src="assets/fashion.png"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-        <li class="nav-item">
-       
-        </li>
-        </ul>
-      </div>
+<nav
+  class="navbar navbar-expand-lg navbar-light"
+  style="background-color: #000c37"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink=""><img src="assets/fashion.png" /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"></li>
+      </ul>
     </div>
-  </nav>
-
-
+  </div>
+</nav>
 
 <div class="principal">
-    <div class="titulo">
-  <h1>Pedidos:</h1>
-</div>
+  <div class="titulo">
+    <h1>Pedidos:</h1>
+  </div>
 
-<div class="container">
-  <div class="row d-flex justify-content-center">
-
+  <div class="container">
+    <div class="row d-flex justify-content-center">
       <div class="card" style="width: 20rem" *ngFor="let pedido of pedidos">
-    
-    
         <p>Endereço: {{ pedido.endereco }}</p>
         <p>Número: {{ pedido.numero }}</p>
         <p>Complemento: {{ pedido.complemento }}</p>
         <p>Forma de Pagamento: {{ pedido.formaPagamento }}</p>
         <div *ngFor="let item of pedido.itens">
-          <p>Valor: {{ item.valor | currency: 'BRL': true }}</p>
+          <p>Valor: {{ item.valor | currency: "BRL":true }}</p>
           <p>Quantidade: {{ item.quantidade }}</p>
-            <img [src]="item.imagens" />
+          <img [src]="item.imagens" />
         </div>
       </div>
     </div>
   </div>
 </div>
-
