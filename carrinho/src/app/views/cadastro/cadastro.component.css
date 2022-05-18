@@ -75,3 +75,46 @@ form img {
 .link-cadastro a:hover {
   text-decoration: underline;
 }
+
+@media screen and (max-width: 1030px) {
+  form {
+    height: 560px;
+  }
+  form input {
+    margin-top: 5px;
+  }
+  form label {
+    margin-top: 5px;
+  }
+  small {
+    margin-top: 5px;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  form {
+    width: 350px;
+    height: 650px;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  form {
+    height: 650px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  form {
+    height: 650px;
+  }
+}
+
+@media screen and (max-width: 290px) {
+  form {
+    width: 250px;
+  }
+  form input {
+    width: 230px;
+  }
+}
