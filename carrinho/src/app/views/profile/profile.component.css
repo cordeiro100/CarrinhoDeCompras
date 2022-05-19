@@ -163,3 +163,21 @@ form input {
 .botao-save:hover {
   filter: brightness(0.8);
 }
+
+@media screen and (max-width: 530px) {
+  .container {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .container {
+    width: 350px;
+  }
+
+  @media screen and (max-width: 365px) {
+    .container {
+      width: 300px;
+    }
+  }
+}
